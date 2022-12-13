@@ -4,6 +4,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import Main from '../../Layout/Main/Main';
+import Home from '../../Pages/Home/Home';
 
 const Routes = () => {
 
@@ -14,7 +15,7 @@ const Routes = () => {
             children: [
                 {
                     path:'/',
-                    element:<>Home</>
+                    element:<Home></Home>
                 }
             ]
         },
