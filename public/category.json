@@ -1,0 +1,102 @@
+[
+    {
+        "_id": "6398b194a23b59c6e6335dd8",
+        "index": 0,
+        "categoryName": "Motivetional",
+        "subcategory": [
+            {
+                "id": 0,
+                "name": "Finance"
+            },
+            {
+                "id": 1,
+                "name": "Depretion"
+            }
+        ]
+    },
+    {
+        "_id": "6398b194ca283f17bd6a1069",
+        "index": 1,
+        "categoryName": "Science",
+        "subcategory": [
+            {
+                "id": 0,
+                "name": "Physics"
+            },
+            {
+                "id": 1,
+                "name": "Chemistry"
+            },
+            {
+                "id": 2,
+                "name": "Biology"
+            }
+        ]
+    },
+    {
+        "_id": "6398b194ef15d98b62d893f2",
+        "index": 2,
+        "categoryName": "Math",
+        "subcategory": [
+            {
+                "id": 0,
+                "name": "Hire Math"
+            },
+            {
+                "id": 1,
+                "name": "Algebra"
+            },
+            {
+                "id": 2,
+                "name": "Arithmetic"
+            },
+            {
+                "id": 3,
+                "name": "Geometry"
+            }
+        ]
+    },
+    {
+        "_id": "6398b194b9cd737f4ff86656",
+        "index": 3,
+        "categoryName": "English",
+        "subcategory": [
+            {
+                "id": 0,
+                "name": "ILTES"
+            },
+            {
+                "id": 1,
+                "name": "Grammer"
+            },
+            {
+                "id": 2,
+                "name": "Nothing"
+            }
+        ]
+    },
+    {
+        "_id": "6398b19498c836a1ed3f5788",
+        "index": 4,
+        "categoryName": "History",
+        "subcategory": [
+            {
+                "id": 0,
+                "name": "Arab"
+            },
+            {
+                "id": 1,
+                "name": "world ware"
+            },
+            {
+                "id": 2,
+                "name": "Britis"
+            }
+        ]
+    },
+    {
+        "_id": "6398b19498c836a1ed3f5788",
+        "index": 5,
+        "categoryName": "Drama"
+    }
+]
