@@ -16,7 +16,7 @@ const Navbar = () => {
                 </div>
             </div>
         </li>
-        <li><button className="mx-2 border border-2">Sign In </button></li>
+        <li><button className="mx-2 border border-2"><Link to='/login'>Sign In</Link> </button></li>
         <li><button className="mx-2 border border-2">My Account</button></li>
         <li><button className="mx-2 border border-2">Buscket
             <div className="indicator">

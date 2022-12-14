@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import Main from '../../Layout/Main/Main';
 import Home from '../../Pages/Home/Home';
+import Login from '../../Pages/Login/Login';
+import NotFound from '../../Pages/NotFound/NotFound';
 
 const Routes = () => {
 
@@ -16,9 +18,17 @@ const Routes = () => {
                 {
                     path:'/',
                     element:<Home></Home>
+                },
+                {
+                    path:'/login',
+                    element:<Login></Login>
                 }
             ]
         },
+        {
+            path:'*',
+            element:<NotFound></NotFound>
+        }
     ]);
 
     return (

@@ -10,11 +10,11 @@ const SingelBook = ({data}) => {
                 <h2 className="card-title">{bookName}</h2>
                 <p>{bookWriter}</p>
                 {
-                    condition ? <div className="badge badge-secondary">New</div> : <div className="badge badge-accent">Used</div>
+                    condition ? <div className="badge badge-primary">New</div> : <div className="badge badge-accent">Used</div>
                 }
                 <div className="card-actions justify-end">
                     <button className="btn btn-success">Buy Now</button>
-                    <button className="btn btn-warning">Add to Cart</button>
+                    <button className="btn btn-warning">Cart</button>
                 </div>
             </div>
         </div>
