@@ -1,0 +1,62 @@
+[
+    {
+      "_id": "63991b8693eb607dff8b911c",
+      "index": 0,
+      "bookName": "Reach Dad Poor Dad",
+      "image": "https://static-01.daraz.com.bd/p/1c1f8e3394ffb3b22f5af8d2c9ee7580.jpg",
+      "bookWriter": "Jhon C",
+      "bookTranslatetor": "Rohim",
+      "price": 90,
+      "condition": true
+    },
+    {
+      "_id": "63991b86238fde342c87915f",
+      "index": 1,
+      "bookName": "Reach Dad Poor Dad",
+      "image": "https://static-01.daraz.com.bd/p/1c1f8e3394ffb3b22f5af8d2c9ee7580.jpg",
+      "bookWriter": "Jhon C",
+      "bookTranslatetor": "Rohim",
+      "price": 90,
+      "condition": false
+    },
+    {
+      "_id": "63991b86898cd2923c201a7c",
+      "index": 2,
+      "bookName": "Reach Dad Poor Dad",
+      "image": "https://static-01.daraz.com.bd/p/1c1f8e3394ffb3b22f5af8d2c9ee7580.jpg",
+      "bookWriter": "Jhon C",
+      "bookTranslatetor": "Rohim",
+      "price": 90,
+      "condition": false
+    },
+    {
+      "_id": "63991b86278166753b36dd23",
+      "index": 3,
+      "bookName": "Reach Dad Poor Dad",
+      "image": "https://static-01.daraz.com.bd/p/1c1f8e3394ffb3b22f5af8d2c9ee7580.jpg",
+      "bookWriter": "Jhon C",
+      "bookTranslatetor": "Rohim",
+      "price": 90,
+      "condition": true
+    },
+    {
+      "_id": "63991b868e06500a94077b89",
+      "index": 4,
+      "bookName": "Reach Dad Poor Dad",
+      "image": "https://static-01.daraz.com.bd/p/1c1f8e3394ffb3b22f5af8d2c9ee7580.jpg",
+      "bookWriter": "Jhon C",
+      "bookTranslatetor": "Rohim",
+      "price": 90,
+      "condition": false
+    },
+    {
+      "_id": "63991b868f06500a94077b89",
+      "index": 5,
+      "bookName": "Reach Dad Poor Dad",
+      "image": "https://static-01.daraz.com.bd/p/1c1f8e3394ffb3b22f5af8d2c9ee7580.jpg",
+      "bookWriter": "Jhon C",
+      "bookTranslatetor": "Rohim",
+      "price": 90,
+      "condition": true
+    }
+  ]

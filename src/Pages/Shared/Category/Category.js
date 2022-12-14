@@ -18,7 +18,7 @@ const Category = () => {
 
     return (
         <div className='category border-y-2'>
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 ">
                 {
                     category.map(cate => <li tabIndex={0}>
                         <a>
@@ -28,7 +28,7 @@ const Category = () => {
                             }
                             
                         </a>
-                        <ul className="p-2 bg-base-100">
+                        <ul className="p-2 bg-base-100 z-10">
                             
                             {
                                 cate?.subcategory?.map(sub => <li><a>{sub.name}</a></li>)
