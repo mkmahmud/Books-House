@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserAuth } from '../../Context/AuthContext/AuthContext';
 
@@ -12,11 +12,19 @@ const Login = () => {
         // Getting User Data
         const email = e.target.email.value;
         const password = e.target.password.value;
+
+        const userInfo = {
+            email,
+            password
+        }
+        console.log(userInfo)
         
         loginwWithEmail(email, password) 
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
+
+
             console.log(user)
             // ...
         })

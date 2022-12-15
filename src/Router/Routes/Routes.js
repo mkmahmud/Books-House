@@ -4,8 +4,10 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import Main from '../../Layout/Main/Main';
+import Cart from '../../Pages/Cart/Cart';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
+import Profile from '../../Pages/MyAccount/Profile/Profile';
 import NotFound from '../../Pages/NotFound/NotFound';
 import SignUp from '../../Pages/SignUp/SignUp';
 
@@ -27,6 +29,14 @@ const Routes = () => {
                 {
                     path:'/signup',
                     element:<SignUp></SignUp>
+                },
+                {
+                    path:'myaccount',
+                    element:<Profile></Profile>
+                },
+                {
+                    path:'cart',
+                    element:<Cart></Cart>
                 }
             ]
         },

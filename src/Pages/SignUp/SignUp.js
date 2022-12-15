@@ -10,14 +10,31 @@ const SignUp = () => {
         e.preventDefault();
 
         // Getting User Data
+        const fullName = e.target.fullname.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+
+        const userInfo = {
+            fullName,
+            email
+        }
 
         signupWithEmail(email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
+
+
+                fetch('http://localhost:5000/insertUser', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                 .then(res => res.json())
+                 .then(data => console.log(data))
                 // ...
             })
             .catch((error) => {
