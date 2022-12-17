@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../../Context/AuthContext/AuthContext';
 
 const Profile = () => {
 
-    const { user } = useContext(UserAuth);
-
+    const { user, databaseUserInfo } = useContext(UserAuth);
    
     return (
         <div className='p-20 text-left'>
@@ -15,7 +14,7 @@ const Profile = () => {
                     Login & Security
                 </div>
                 <div className="collapse-content">
-                    <h2 className='my-2 text-xl'><strong>Name:</strong><span className='px-5'>{user?.displayName ? user.displayName : 'Need to Update'}</span></h2>
+                    <h2 className='my-2 text-xl'><strong>Name:</strong><span className='px-5'>{databaseUserInfo?.fullName ? databaseUserInfo.fullName : 'Need to Update'}</span></h2>
                     <h2 className='my-2 text-xl'><strong>Email:</strong><span className='px-5'>{user?.email ? user.email : 'Need to Update'}</span></h2>
                     <div className="forgetPassword p-5">
                         <button className="btn bg-[#8FE3CF] text-black hover:bg-[#002B5B] hover:text-white transition-all" >Change Password</button>

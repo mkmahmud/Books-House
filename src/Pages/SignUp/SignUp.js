@@ -13,11 +13,16 @@ const SignUp = () => {
         const fullName = e.target.fullname.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const userRoleChecked = e.target.userRole.checked;
+        const userRole = userRoleChecked ? 1 : 2;
+        
 
         const userInfo = {
             fullName,
-            email
+            email,
+            role:userRole
         }
+        
 
         signupWithEmail(email, password)
             .then((userCredential) => {
@@ -33,8 +38,8 @@ const SignUp = () => {
                     },
                     body: JSON.stringify(userInfo)
                 })
-                 .then(res => res.json())
-                 .then(data => console.log(data))
+                    .then(res => res.json())
+                    .then(data => console.log(data))
                 // ...
             })
             .catch((error) => {
@@ -61,6 +66,12 @@ const SignUp = () => {
                                 <span className="label-text text-white">Email</span>
                             </label>
                             <input type="text" name='email' placeholder="email" className="input input-bordered bg-[#2B4865] " />
+                        </div>
+                        <div className="form-control py-2 border border-2 rounded my-2">
+                            <label className="cursor-pointer label">
+                                <span className="label-text text-white">Are you want to sell youe books</span>
+                                <input type="checkbox"  name='userRole'  className="checkbox checkbox-success" />
+                            </label>
                         </div>
                         <div className="form-control">
                             <label className="label">

@@ -16,6 +16,18 @@ const AuthContext = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
 
+    // Get User Data from Database
+    const userEmail = user?.email || null;
+    
+    const [databaseUserInfo, setdatabaseUserInfo] = useState({}) 
+    
+    useEffect(()=> {
+        fetch(`http://localhost:5000/profile?email=${userEmail}`)
+        .then(res => res.json())
+        .then(data => setdatabaseUserInfo(data))
+    },[userEmail])
+    
+
     // Create User Email Password
     const signupWithEmail = (email, password) => {
         setLoading(true)
@@ -48,7 +60,7 @@ const AuthContext = ({ children }) => {
 
 
     return (
-        <UserAuth.Provider value={{ signupWithEmail, loginwWithEmail, user, logOut}}>
+        <UserAuth.Provider value={{ signupWithEmail, loginwWithEmail, user, logOut, databaseUserInfo}}>
             {children}
         </UserAuth.Provider>
     );

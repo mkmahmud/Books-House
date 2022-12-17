@@ -9,6 +9,7 @@ import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
 import Profile from '../../Pages/MyAccount/Profile/Profile';
 import NotFound from '../../Pages/NotFound/NotFound';
+import SellBook from '../../Pages/SellBook/SellBook';
 import SignUp from '../../Pages/SignUp/SignUp';
 
 const Routes = () => {
@@ -37,6 +38,10 @@ const Routes = () => {
                 {
                     path:'cart',
                     element:<Cart></Cart>
+                },
+                {
+                    path:'sellbook',
+                    element:<SellBook></SellBook>
                 }
             ]
         },

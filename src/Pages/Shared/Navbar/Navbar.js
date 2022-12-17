@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assetes/book.png'
 import { UserAuth } from '../../../Context/AuthContext/AuthContext';
 
 const Navbar = () => {
 
-    const { user, logOut } = useContext(UserAuth)
+    const { user, logOut, databaseUserInfo } = useContext(UserAuth);
+   
 
     const menus = <>
 
@@ -31,6 +32,9 @@ const Navbar = () => {
             user ?
                 <>
                     <li><button className="mx-2 border border-2" ><Link to='/myaccount'>My Account</Link></button></li>
+                    {
+                        databaseUserInfo?.role === 1 ? <li><button className="mx-2 border border-2 bg-green-400" ><Link to='/sellbook'>Sell Book</Link></button></li> : ''
+                    }
                     <li><button className="mx-2 border border-2 bg-red-400" onClick={() => logOut()}>Log Out</button></li>
                 </>
                 :
