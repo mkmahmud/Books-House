@@ -9,6 +9,7 @@ import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
 import Profile from '../../Pages/MyAccount/Profile/Profile';
 import NotFound from '../../Pages/NotFound/NotFound';
+import PendingAproval from '../../Pages/PendingAproval/PendingAproval';
 import SellBook from '../../Pages/SellBook/SellBook';
 import SignUp from '../../Pages/SignUp/SignUp';
 
@@ -42,6 +43,10 @@ const Routes = () => {
                 {
                     path:'sellbook',
                     element:<SellBook></SellBook>
+                },
+                {
+                    path:'/pendingaproval',
+                    element:<PendingAproval></PendingAproval>
                 }
             ]
         },

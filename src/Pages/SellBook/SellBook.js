@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import { UserAuth } from '../../Context/AuthContext/AuthContext';
 
 const SellBook = () => {
 
+    const {databaseUserInfo} = useContext(UserAuth)
+    
     const [BookData, setBookData] = useState({})
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -25,6 +28,8 @@ const SellBook = () => {
                 .then(res => res.json())
                 .then(data => {
                     BookData.BookImage = data.data.display_url;
+                    BookData.status = 0;
+                    BookData.userEmail = databaseUserInfo?.email;
                     fetch(`http://localhost:5000/addbook`, {
                         method: 'POST',
                         headers: {
