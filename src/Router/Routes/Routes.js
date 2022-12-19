@@ -13,6 +13,7 @@ import NotFound from '../../Pages/NotFound/NotFound';
 import PendingAproval from '../../Pages/PendingAproval/PendingAproval';
 import SellBook from '../../Pages/SellBook/SellBook';
 import SignUp from '../../Pages/SignUp/SignUp';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 const Routes = () => {
 
@@ -39,7 +40,7 @@ const Routes = () => {
                 },
                 {
                     path:'cart',
-                    element:<Cart></Cart>
+                    element:<PrivateRoute><Cart></Cart></PrivateRoute>
                 },
                 {
                     path:'sellbook',

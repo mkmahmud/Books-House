@@ -1,15 +1,35 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { UserAuth } from '../../Context/AuthContext/AuthContext';
+import toast from 'react-hot-toast';
 
 const SellBook = () => {
+    // Toast for added book
+    const Addbooktoast = (text) => toast.success(text)
 
-    const {databaseUserInfo} = useContext(UserAuth)
-    
+
+    // Loading
+    const [loading, setLoading] = useState(false)
+
+    const [category, setCategory] = useState([]);
+
+    // Get Category
+    useEffect(() => {
+        fetch('category.json')
+            .then(res => res.json())
+            .then(data => setCategory(data))
+    }, [])
+
+
+    const { databaseUserInfo } = useContext(UserAuth)
+
     const [BookData, setBookData] = useState({})
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => setBookData(data);
+    const onSubmit = data => {
+        setLoading(true);
+        setBookData(data);
+    };
 
 
 
@@ -38,7 +58,10 @@ const SellBook = () => {
                         body: JSON.stringify(BookData)
                     })
                         .then(res => res.json())
-                        .then(data => console.log(data))
+                        .then(data => {
+                            Addbooktoast('Book added successFully')
+                            setLoading(false)
+                        })
                 })
         }
 
@@ -49,6 +72,7 @@ const SellBook = () => {
 
     return (
         <div className='p-10'>
+            <button className='btn ' >MK</button>
             <h2 className='text-4xl p-5 font-bold'>Sell your Book</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
@@ -68,6 +92,18 @@ const SellBook = () => {
                         <span>Book Writer</span>
                         <input type="text" placeholder="Jhon" {...register("bookWriter")} className="input input-bordered" />
                     </label>
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Select Book Condition</span>
+                    </label>
+                    <select className="select select-bordered"   {...register("category")}>
+                        <option selected disabled>Select Category</option>
+
+                        {
+                            category.map(cate => <option value={cate.categoryName}>{cate.categoryName}</option>)
+                        }
+                    </select>
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
@@ -93,7 +129,7 @@ const SellBook = () => {
                         <input type="text" placeholder="89" {...register("price")} className="input input-bordered" />
                     </label>
                 </div>
-                <button className='btn btn-primary'>Add Book </button>
+                <button className={`btn btn-primary ${ loading ? 'loading' : ''}`}>Add Book </button>
             </form>
         </div>
     );

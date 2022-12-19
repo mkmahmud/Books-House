@@ -60,7 +60,7 @@ const AuthContext = ({ children }) => {
 
 
     return (
-        <UserAuth.Provider value={{ signupWithEmail, loginwWithEmail, user, logOut, databaseUserInfo}}>
+        <UserAuth.Provider value={{ signupWithEmail, loginwWithEmail, user, logOut, databaseUserInfo, loading}}>
             {children}
         </UserAuth.Provider>
     );

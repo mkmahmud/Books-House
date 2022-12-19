@@ -1,7 +1,11 @@
 import React from 'react';
+import toast from 'react-hot-toast';
+
 
 const PendingBook = ({data}) => {
     const {_id, userEmail, bookName, bookWriter, price} = data;
+
+    const approvedToast = (text) => toast.success(text)
 
     const handelApprove = (id) => {
 
@@ -10,7 +14,9 @@ const PendingBook = ({data}) => {
             method:'POST'
         })
          .then(res => res.json())
-         .then(data => console.log(data))
+         .then(data => {
+                approvedToast('Approved')
+         })
 
     }
 

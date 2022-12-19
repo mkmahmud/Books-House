@@ -13,7 +13,6 @@ const Category = () => {
             .then(data => setCategory(data))
     }, [])
 
-    console.log(category)
 
 
     return (
