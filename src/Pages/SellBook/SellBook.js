@@ -30,7 +30,7 @@ const SellBook = () => {
                     BookData.BookImage = data.data.display_url;
                     BookData.status = 0;
                     BookData.userEmail = databaseUserInfo?.email;
-                    fetch(`http://localhost:5000/addbook`, {
+                    fetch(`https://bookhouse-server-nine.vercel.app/addbook`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

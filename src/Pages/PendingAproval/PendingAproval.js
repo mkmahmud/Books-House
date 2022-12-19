@@ -8,10 +8,10 @@ const PendingAproval = () => {
 
     // Getting data form Database 
     useEffect(()=>{
-        fetch(`http://localhost:5000/booksApproval`) 
+        fetch(`https://bookhouse-server-nine.vercel.app/booksApproval`) 
          .then(res => res.json())
          .then(data => setPendingBooks(data))
-    },[])
+    },[pendingBooks])
 
 
     return (

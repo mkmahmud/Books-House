@@ -4,6 +4,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import Main from '../../Layout/Main/Main';
+import Books from '../../Pages/Books/Books';
 import Cart from '../../Pages/Cart/Cart';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
@@ -47,6 +48,10 @@ const Routes = () => {
                 {
                     path:'/pendingaproval',
                     element:<PendingAproval></PendingAproval>
+                },
+                {
+                    path:'/books',
+                    element: <Books></Books>
                 }
             ]
         },
