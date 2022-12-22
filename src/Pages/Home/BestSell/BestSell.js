@@ -10,7 +10,7 @@ const BestSell = () => {
     // Load Data 
 
     useEffect(() => {
-        fetch('http://localhost:5000/books')
+        fetch('https://bookhouse-server-mkmahmud.vercel.app/books')
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])

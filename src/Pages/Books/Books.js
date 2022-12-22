@@ -7,32 +7,29 @@ const Books = () => {
     const [mainbooks, mainsetBooks] = useState([]);
     const [books, setBooks] = useState([]);
 
-
+   
     const bookLength = mainbooks.length;
-    const [perPage, setperPage] = useState(8) 
+    const [perPage, setperPage] = useState(8)
     const [currentPage, setCurrentPage] = useState(1)
 
-    const totalPage = Math.ceil(bookLength/perPage)
+    const totalPage = Math.ceil(bookLength / perPage)
 
-    
+
     const handelPage = pageNumber => {
         setCurrentPage(pageNumber)
     }
 
-    console.log(perPage, currentPage)
 
-
-    
     // Load Data 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allbooks?page=${currentPage}&perpge=${perPage}`)
+        fetch(`https://bookhouse-server-mkmahmud.vercel.app/allbooks?page=${currentPage}&perpge=${perPage}`)
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [currentPage, perPage])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allbooks`)
+        fetch(`https://bookhouse-server-mkmahmud.vercel.app/allbooks`)
             .then(res => res.json())
             .then(data => mainsetBooks(data))
     }, [])
@@ -45,13 +42,26 @@ const Books = () => {
                     books?.map(book => <SingelBook data={book}></SingelBook>)
                 }
             </div>
+            {/* Pagination */}
             <div className="paigenition my-5">
                 <div className="btn-group">
-                    <button className="btn">« Previous</button>
+
                     {
-                        [...Array(totalPage).keys()].map(pageNumber => <button className="btn" onClick={() => handelPage(pageNumber)}> {pageNumber+1}</button>)
+                        currentPage === 0 ?
+                            <button className="btn" onClick={() => handelPage(currentPage - 1)} disabled>« Previous</button>
+                            :
+                            <button className="btn" onClick={() => handelPage(currentPage - 1)}>« Previous</button>
                     }
-                    <button className="btn">Next »</button>
+                    {
+                        [...Array(totalPage).keys()].map(pageNumber => <button className="btn" onClick={() => handelPage(pageNumber)}> {pageNumber + 1}</button>)
+                    }
+
+                    {
+                        totalPage === currentPage + 1 ?
+                            <button className="btn" onClick={() => handelPage(currentPage + 1)} disabled>Next »</button>
+                            :
+                            <button className="btn" onClick={() => handelPage(currentPage + 1)} >Next »</button>
+                    }
                 </div>
             </div>
         </div>

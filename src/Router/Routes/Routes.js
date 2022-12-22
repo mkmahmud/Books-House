@@ -6,6 +6,7 @@ import {
 import Main from '../../Layout/Main/Main';
 import Books from '../../Pages/Books/Books';
 import Cart from '../../Pages/Cart/Cart';
+import CategorySearch from '../../Pages/CategorySearch/CategorySearch';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
 import Profile from '../../Pages/MyAccount/Profile/Profile';
@@ -53,6 +54,13 @@ const Routes = () => {
                 {
                     path:'/books',
                     element: <Books></Books>
+                },
+                {
+                    path:'/books/:categoryName',
+                    loader:  async ({params}) => {
+                        return fetch(`http://localhost:5000/books/${params.categoryName}`)
+                    } ,
+                    element: <CategorySearch></CategorySearch>
                 }
             ]
         },
