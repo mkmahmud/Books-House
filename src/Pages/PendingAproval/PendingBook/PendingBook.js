@@ -10,7 +10,7 @@ const PendingBook = ({data}) => {
     const handelApprove = (id) => {
 
 
-        fetch(`https://bookhouse-server-nine.vercel.app/booksapproved?id=${id}`, {
+        fetch(`https://bookhouse-server-mkmahmud.vercel.app/booksapproved?id=${id}`, {
             method:'POST'
         })
          .then(res => res.json())

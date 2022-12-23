@@ -31,7 +31,7 @@ const SignUp = () => {
                 console.log(user)
 
 
-                fetch('https://bookhouse-server-nine.vercel.app/insertUser', {
+                fetch('https://bookhouse-server-mkmahmud.vercel.app/insertUser', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

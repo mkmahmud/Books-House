@@ -59,7 +59,7 @@ const Routes = () => {
                 {
                     path:'/books/:categoryName',
                     loader:  async ({params}) => {
-                        return fetch(`http://localhost:5000/books/${params.categoryName}`)
+                        return fetch(`https://bookhouse-server-mkmahmud.vercel.app/books/${params.categoryName}`)
                     } ,
                     element: <CategorySearch></CategorySearch>
                 },

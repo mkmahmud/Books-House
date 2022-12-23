@@ -8,7 +8,7 @@ const PendingAproval = () => {
 
     // Getting data form Database 
     useEffect(()=>{
-        fetch(`https://bookhouse-server-nine.vercel.app/booksApproval`) 
+        fetch(`https://bookhouse-server-mkmahmud.vercel.app/booksApproval`) 
          .then(res => res.json())
          .then(data => setPendingBooks(data))
     },[pendingBooks])

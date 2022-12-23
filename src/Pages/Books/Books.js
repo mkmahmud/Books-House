@@ -65,7 +65,7 @@ const Books = () => {
             addedTime: new Date()
         }
 
-        fetch('http://localhost:5000/addBooking', {
+        fetch('https://bookhouse-server-mkmahmud.vercel.app/addBooking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
