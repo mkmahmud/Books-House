@@ -10,6 +10,7 @@ import CategorySearch from '../../Pages/CategorySearch/CategorySearch';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
 import Profile from '../../Pages/MyAccount/Profile/Profile';
+import MyBooked from '../../Pages/MyBooked/MyBooked';
 import NotFound from '../../Pages/NotFound/NotFound';
 import PendingAproval from '../../Pages/PendingAproval/PendingAproval';
 import SellBook from '../../Pages/SellBook/SellBook';
@@ -61,6 +62,10 @@ const Routes = () => {
                         return fetch(`http://localhost:5000/books/${params.categoryName}`)
                     } ,
                     element: <CategorySearch></CategorySearch>
+                },
+                {
+                    path:'/mybooked',
+                    element:<MyBooked></MyBooked>
                 }
             ]
         },

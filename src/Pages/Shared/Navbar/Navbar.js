@@ -38,6 +38,7 @@ const Navbar = () => {
                     {
                         databaseUserInfo?.role === 1 ? <li><button className="mx-2 border border-2 bg-green-400" ><Link to='/sellbook'>Sell Book</Link></button></li> : ''
                     }
+                    <li><button className="mx-2 border border-2 " > <Link to='mybooked'>My Booked</Link> </button></li>
                     <li><button className="mx-2 border border-2 bg-red-400" onClick={() => logOut()}>Log Out</button></li>
                 </>
                 :

@@ -1,12 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserAuth } from '../../Context/AuthContext/AuthContext';
 import SingelBook from './SingelBook/SingelBook';
+import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
+
 
 const Books = () => {
 
+    // Toast for Booking
+    const bookingsuccess = (text) => toast.success(text)
 
     // UserData 
-    const { user, databaseUserInfo } = useContext(UserAuth);
+    const { databaseUserInfo } = useContext(UserAuth);
+    const { fullName, email } = databaseUserInfo;
 
 
     // Books
@@ -41,7 +47,39 @@ const Books = () => {
             .then(res => res.json())
             .then(data => mainsetBooks(data))
     }, [])
-    console.log(modalData)
+
+    // manage booking Data
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const bookingInfo = {
+            userName: e.target.userName.value,
+            userEmail: e.target.userEmail.value,
+            phone: e.target.phone.value,
+            location: e.target.location.value,
+            productId: e.target.productId.value,
+            booksUserEmail: e.target.booksUserEmail.value,
+            BookImage: e.target.BookImage.value,
+            bookName: e.target.bookName.value,
+            booksprice: e.target.price.value,
+            
+            addedTime: new Date()
+        }
+
+        fetch('http://localhost:5000/addBooking', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookingInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.acknowledged) {
+                    bookingsuccess('Your Booked Successfull')
+                }
+            })
+    }
+
 
     return (
         <div className="books">
@@ -76,17 +114,25 @@ const Books = () => {
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-2xl font-bold py-2">{modalData.bookName}</h3>
-                    <img src={modalData.BookImage} className='h-48 w-full' alt="" />
-                    <div className="user p-5">
-                        <input type="text" value={databaseUserInfo?.fullName} className="input input-bordered w-full my-2" disabled />
-                        <input type="text" value={user?.email} className="input input-bordered w-full my-2" disabled />
-                    </div>
-                    <input type="text" value={`Cost $${modalData?.price}`} className="input input-bordered w-full my-2" disabled />
-                    <input type="text" value='Your Number' className="input input-bordered w-full my-2"  />
-                    <input type="text" value='Location' className="input input-bordered w-full my-2"  />
-                    <input type="submit" className='btn btn-success' value='Confirm' name="" id="" />
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <h3 className="text-2xl font-bold py-2">{modalData.bookName}</h3>
+                        <img src={modalData.BookImage} className='h-48 w-full' alt="" />
+                        <div className="user p-5">
+                            <input type="text" value={fullName} name='userName' className="input input-bordered w-full my-2" />
+                            <input type="text" value={email} name='userEmail' className="input input-bordered w-full my-2" />
+                        </div>
+                        <input type="text" value={`Cost $${modalData?.price}`} className="input input-bordered w-full my-2" disabled />
+                        <input type="text" placeholder='Your Number' name='phone' className="input input-bordered w-full my-2" />
+                        <input type="text" placeholder='Meet Location' name='location' className="input input-bordered w-full my-2" />
+                        <input type="hidden" defaultValue={modalData._id} name='productId' />
+                        <input type="hidden" defaultValue={modalData.BookImage} name='BookImage' />
+                        <input type="hidden" defaultValue={modalData.bookName} name='bookName' />
+                        <input type="hidden" defaultValue={modalData.price} name='price' />
+                        <input type="hidden" defaultValue={modalData.userEmail} name='booksUserEmail' />
+                        <input type="submit" className='btn btn-success' value='Confirm' name="" id="" />
+                    </form>
+
                 </div>
             </div>
         </div>
