@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendEmailVerification  } from "firebase/auth";
 import { app } from '../../Config/Firebase/Firebase';
 
 
@@ -18,15 +18,15 @@ const AuthContext = ({ children }) => {
 
     // Get User Data from Database
     const userEmail = user?.email || null;
-    
-    const [databaseUserInfo, setdatabaseUserInfo] = useState({}) 
-    
-    useEffect(()=> {
+
+    const [databaseUserInfo, setdatabaseUserInfo] = useState({})
+
+    useEffect(() => {
         fetch(`https://bookhouse-server-mkmahmud.vercel.app/profile?email=${userEmail}`)
-        .then(res => res.json())
-        .then(data => setdatabaseUserInfo(data))
-    },[userEmail])
-    
+            .then(res => res.json())
+            .then(data => setdatabaseUserInfo(data))
+    }, [userEmail])
+
 
     // Create User Email Password
     const signupWithEmail = (email, password) => {
@@ -48,6 +48,15 @@ const AuthContext = ({ children }) => {
         return signInWithEmailAndPassword(Auth, email, password)
     }
 
+
+    // sendSignInLinkToEmail
+
+    const sendsignInLink = (email) => {
+
+       return  sendEmailVerification(Auth.currentUser)
+            
+    }
+
     // On state Changed
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(Auth, currentUser => {
@@ -57,10 +66,10 @@ const AuthContext = ({ children }) => {
         return () => unsubscribe();
 
     }, [user])
-
+    
 
     return (
-        <UserAuth.Provider value={{ signupWithEmail, loginwWithEmail, user, logOut, databaseUserInfo, loading}}>
+        <UserAuth.Provider value={{ signupWithEmail, loginwWithEmail, user, logOut, databaseUserInfo, loading, sendsignInLink  }}>
             {children}
         </UserAuth.Provider>
     );

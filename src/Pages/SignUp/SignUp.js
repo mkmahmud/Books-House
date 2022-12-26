@@ -1,10 +1,18 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate  } from 'react-router-dom';
 import { UserAuth } from '../../Context/AuthContext/AuthContext';
 
 const SignUp = () => {
 
-    const { signupWithEmail } = useContext(UserAuth)
+    const { user, signupWithEmail, sendsignInLink } = useContext(UserAuth)
+
+
+    const location = useNavigate();
+
+    if(user?.uid){
+        return location('/')
+    }
+
 
     const handelSignUp = (e) => {
         e.preventDefault();
@@ -15,21 +23,22 @@ const SignUp = () => {
         const password = e.target.password.value;
         const userRoleChecked = e.target.userRole.checked;
         const userRole = userRoleChecked ? 1 : 2;
-        
+
 
         const userInfo = {
             fullName,
             email,
-            role:userRole
+            role: userRole
         }
-        
+
 
         signupWithEmail(email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
-
+                sendsignInLink()
+                 .then(() => console.log('Email Sent'))
 
                 fetch('https://bookhouse-server-mkmahmud.vercel.app/insertUser', {
                     method: "POST",
@@ -70,7 +79,7 @@ const SignUp = () => {
                         <div className="form-control py-2 border border-2 rounded my-2">
                             <label className="cursor-pointer label">
                                 <span className="label-text text-white">Are you want to sell youe books</span>
-                                <input type="checkbox"  name='userRole'  className="checkbox checkbox-success" />
+                                <input type="checkbox" name='userRole' className="checkbox checkbox-success" />
                             </label>
                         </div>
                         <div className="form-control">

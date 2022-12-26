@@ -3,6 +3,7 @@ import { UserAuth } from '../../Context/AuthContext/AuthContext';
 import SingelBook from './SingelBook/SingelBook';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
+import useMyAdded from '../../Hooks/useMyAdded';
 
 
 const Books = () => {
@@ -17,7 +18,7 @@ const Books = () => {
 
     // Books
     const [mainbooks, mainsetBooks] = useState([]);
-    const [books, setBooks] = useState([]);
+    // const [books, setBooks] = useState([]);
 
     // Modal Data 
     const [modalData, setModalData] = useState({});
@@ -35,12 +36,14 @@ const Books = () => {
 
 
     // Load Data 
+    const {books} = useMyAdded(`?page=${currentPage}&perpge=${perPage}`);
+    console.log(books)
 
-    useEffect(() => {
-        fetch(`https://bookhouse-server-mkmahmud.vercel.app/allbooks?page=${currentPage}&perpge=${perPage}`)
-            .then(res => res.json())
-            .then(data => setBooks(data))
-    }, [currentPage, perPage])
+    // useEffect(() => {
+    //     fetch(`https://bookhouse-server-mkmahmud.vercel.app/allbooks?page=${currentPage}&perpge=${perPage}`)
+    //         .then(res => res.json())
+    //         .then(data => setBooks(data))
+    // }, [currentPage, perPage])
 
     useEffect(() => {
         fetch(`https://bookhouse-server-mkmahmud.vercel.app/allbooks`)
@@ -79,7 +82,7 @@ const Books = () => {
                 }
             })
     }
-
+    console.log(currentPage)
 
     return (
         <div className="books">
@@ -99,7 +102,8 @@ const Books = () => {
                             <button className="btn" onClick={() => handelPage(currentPage - 1)}>« Previous</button>
                     }
                     {
-                        [...Array(totalPage).keys()].map(pageNumber => <button className="btn" onClick={() => handelPage(pageNumber)}> {pageNumber + 1}</button>)
+                        [...Array(totalPage).keys()].map(pageNumber => <button className={`btn ${currentPage === pageNumber ? 'btn-primary' : ''}`} onClick={() => handelPage(pageNumber)}> {pageNumber + 1}</button>)
+                        
                     }
 
                     {

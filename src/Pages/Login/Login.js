@@ -1,10 +1,19 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../Context/AuthContext/AuthContext';
 
 const Login = () => {
 
-    const {loginwWithEmail} = useContext(UserAuth)
+    const location = useNavigate();
+
+   
+
+    const {user, loginwWithEmail} = useContext(UserAuth);
+
+    if(user?.uid){
+        return location('/')
+    }
+
 
     const handelLogin = (e) => {
         e.preventDefault();

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assetes/book.png'
 import { UserAuth } from '../../../Context/AuthContext/AuthContext';
+import useMyAdded from '../../../Hooks/useMyAdded';
 
 const Navbar = () => {
 
@@ -38,7 +39,10 @@ const Navbar = () => {
                     {
                         databaseUserInfo?.role === 1 ? <li><button className="mx-2 border border-2 bg-green-400" ><Link to='/sellbook'>Sell Book</Link></button></li> : ''
                     }
-                    <li><button className="mx-2 border border-2 " > <Link to='mybooked'>My Booked</Link> </button></li>
+                     {
+                        databaseUserInfo?.role === 1 ? <li><button className="mx-2 border border-2 " ><Link to='/myAdded'>My Added</Link></button></li> : 
+                        <li><button className="mx-2 border border-2 " > <Link to='mybooked'>My Booked</Link> </button></li>
+                    }
                     <li><button className="mx-2 border border-2 bg-red-400" onClick={() => logOut()}>Log Out</button></li>
                 </>
                 :

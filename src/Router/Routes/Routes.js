@@ -38,7 +38,7 @@ const Routes = () => {
                 },
                 {
                     path:'myaccount',
-                    element:<Profile></Profile>
+                    element:<PrivateRoute><Profile></Profile></PrivateRoute>
                 },
                 {
                     path:'cart',
@@ -46,7 +46,7 @@ const Routes = () => {
                 },
                 {
                     path:'sellbook',
-                    element:<SellBook></SellBook>
+                    element:<PrivateRoute><SellBook></SellBook></PrivateRoute>
                 },
                 {
                     path:'/pendingaproval',
@@ -65,7 +65,7 @@ const Routes = () => {
                 },
                 {
                     path:'/mybooked',
-                    element:<MyBooked></MyBooked>
+                    element:<PrivateRoute><MyBooked></MyBooked></PrivateRoute>
                 }
             ]
         },
