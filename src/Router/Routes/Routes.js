@@ -5,11 +5,13 @@ import {
 } from "react-router-dom";
 import Main from '../../Layout/Main/Main';
 import Books from '../../Pages/Books/Books';
+import SearchBooks from '../../Pages/Books/SearchBooks';
 import Cart from '../../Pages/Cart/Cart';
 import CategorySearch from '../../Pages/CategorySearch/CategorySearch';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
 import Profile from '../../Pages/MyAccount/Profile/Profile';
+import MyAdded from '../../Pages/MyAdded/MyAdded';
 import MyBooked from '../../Pages/MyBooked/MyBooked';
 import NotFound from '../../Pages/NotFound/NotFound';
 import PendingAproval from '../../Pages/PendingAproval/PendingAproval';
@@ -56,16 +58,24 @@ const Routes = () => {
                     path:'/books',
                     element: <Books></Books>
                 },
-                {
+                { 
                     path:'/books/:categoryName',
                     loader:  async ({params}) => {
                         return fetch(`https://bookhouse-server-mkmahmud.vercel.app/books/${params.categoryName}`)
                     } ,
                     element: <CategorySearch></CategorySearch>
                 },
-                {
+                { 
                     path:'/mybooked',
                     element:<PrivateRoute><MyBooked></MyBooked></PrivateRoute>
+                },
+                {
+                    path:'/books/search/:searchValue',
+                    element: <PrivateRoute><Books></Books></PrivateRoute>
+                },
+                {
+                    path:'myAdded',
+                    element: <PrivateRoute><MyAdded></MyAdded></PrivateRoute>
                 }
             ]
         },

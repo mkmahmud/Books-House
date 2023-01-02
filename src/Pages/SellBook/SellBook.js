@@ -72,7 +72,6 @@ const SellBook = () => {
 
     return (
         <div className='p-10'>
-            <button className='btn ' >MK</button>
             <h2 className='text-4xl p-5 font-bold'>Sell your Book</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">

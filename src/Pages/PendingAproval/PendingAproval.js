@@ -14,6 +14,7 @@ const PendingAproval = () => {
     },[pendingBooks])
 
 
+
     return (
             <div className="overflow-x-auto w-full p-5 ">
                 <h2 className='text-4xl font-bold  py-5'>Pending Approval</h2>
@@ -29,7 +30,7 @@ const PendingAproval = () => {
                     </thead>
                     <tbody>
                        {
-                        pendingBooks.map(pendingBook => <PendingBook data={pendingBook}></PendingBook>)
+                        pendingBooks?.map(pendingBook => <PendingBook data={pendingBook}></PendingBook>)
                        }
                     </tbody>
 

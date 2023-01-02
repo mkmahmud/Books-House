@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../Assetes/book.png'
 import { UserAuth } from '../../../Context/AuthContext/AuthContext';
 import useMyAdded from '../../../Hooks/useMyAdded';
@@ -7,6 +7,16 @@ import useMyAdded from '../../../Hooks/useMyAdded';
 const Navbar = () => {
 
     const { user, logOut, databaseUserInfo } = useContext(UserAuth);
+    
+    
+    const [searchValue, setsearchValue] = useState(' ')
+    const handelSearch = (e) => {
+        e.preventDefault()
+        const searchText = e.target.value
+        setsearchValue(searchText)
+    }
+
+    
 
 
     const menus = <>
@@ -14,10 +24,12 @@ const Navbar = () => {
         <li>
             <div className="form-control">
                 <div className="input-group">
-                    <input type="text" placeholder="Search…" className="input input-bordered" />
-                    <button className="btn btn-square">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                    </button>
+                   
+                        <input type="text" placeholder="Search…" name='searchText' className="input input-bordered" onBlur={handelSearch} />
+                        <Link to={`books/search/${searchValue}`} className="btn btn-square" type='submit' >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </Link>
+                   
                 </div>
             </div>
         </li>
@@ -39,9 +51,9 @@ const Navbar = () => {
                     {
                         databaseUserInfo?.role === 1 ? <li><button className="mx-2 border border-2 bg-green-400" ><Link to='/sellbook'>Sell Book</Link></button></li> : ''
                     }
-                     {
-                        databaseUserInfo?.role === 1 ? <li><button className="mx-2 border border-2 " ><Link to='/myAdded'>My Added</Link></button></li> : 
-                        <li><button className="mx-2 border border-2 " > <Link to='mybooked'>My Booked</Link> </button></li>
+                    {
+                        databaseUserInfo?.role === 1 ? <li><button className="mx-2 border border-2 " ><Link to='/myAdded'>My Added</Link></button></li> :
+                            <li><button className="mx-2 border border-2 " > <Link to='mybooked'>My Booked</Link> </button></li>
                     }
                     <li><button className="mx-2 border border-2 bg-red-400" onClick={() => logOut()}>Log Out</button></li>
                 </>
