@@ -16,6 +16,7 @@ import MyBooked from '../../Pages/MyBooked/MyBooked';
 import NotFound from '../../Pages/NotFound/NotFound';
 import PendingAproval from '../../Pages/PendingAproval/PendingAproval';
 import SellBook from '../../Pages/SellBook/SellBook';
+import Nav from '../../Pages/Shared/Navbar/Nav';
 import SignUp from '../../Pages/SignUp/SignUp';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
@@ -52,7 +53,7 @@ const Routes = () => {
                 },
                 {
                     path:'/pendingaproval',
-                    element:<PendingAproval></PendingAproval>
+                    element:<PrivateRoute><PendingAproval></PendingAproval></PrivateRoute>
                 },
                 {
                     path:'/books',
@@ -76,12 +77,17 @@ const Routes = () => {
                 {
                     path:'myAdded',
                     element: <PrivateRoute><MyAdded></MyAdded></PrivateRoute>
-                }
+                },
+                
             ]
         },
         {
             path:'*',
             element:<NotFound></NotFound>
+        },
+        {
+            path:'/test',
+            element: <Nav></Nav>
         }
     ]);
 
