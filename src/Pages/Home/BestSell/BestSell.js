@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../../Loader/Loader';
 import SingelBook from './SingelBook/SingelBook';
 
 const BestSell = () => {
 
     // Books
     const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(true)
 
     // Load Data 
 
     useEffect(() => {
         fetch('https://bookhouse-server-mkmahmud.vercel.app/books')
             .then(res => res.json())
-            .then(data => setBooks(data))
+            .then(data => {
+                setBooks(data);
+                setLoading(false)
+            })
     }, [])
     console.log(books)
 
@@ -27,6 +32,9 @@ const BestSell = () => {
                 }
             </div>
             <div className='text-right'>
+                {
+                    loading && <Loader></Loader>
+                }
                 <button className='btn btn-info m-5'><Link to='/books'>Show All</Link></button>
             </div>
         </div>

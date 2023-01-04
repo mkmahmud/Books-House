@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import useMyAdded from '../../Hooks/useMyAdded';
 import { Link, useParams } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 
 
 const Books = () => {
@@ -37,7 +38,7 @@ const Books = () => {
     }
 
     // Load Data 
-    const { books } = useMyAdded(`?page=${currentPage}&perpge=${perPage}`);
+    const { loading, books } = useMyAdded(`?page=${currentPage}&perpge=${perPage}`);
     console.log(books)
 
     // useEffect(() => {
@@ -87,6 +88,10 @@ const Books = () => {
 
     return (
         <div className="books">
+            {
+                // Loader
+                loading && <Loader></Loader>
+            }
             <div className='grid grid-cols-1 md:grid-cols-4 gap-8 p-10'>
                 {
                     books?.map(book => <SingelBook data={book} key={book._id} setModalData={setModalData}></SingelBook>)

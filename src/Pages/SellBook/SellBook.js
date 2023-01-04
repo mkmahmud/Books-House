@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { UserAuth } from '../../Context/AuthContext/AuthContext';
 import toast from 'react-hot-toast';
+import Loader from '../Loader/Loader';
 
 const SellBook = () => {
     // Toast for added book
@@ -72,6 +73,8 @@ const SellBook = () => {
 
     return (
         <div className='p-10'>
+            {/* Loader */}
+            {loading ? <Loader></Loader> : ''} 
             <h2 className='text-4xl p-5 font-bold'>Sell your Book</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
@@ -128,7 +131,7 @@ const SellBook = () => {
                         <input type="text" placeholder="89" {...register("price")} className="input input-bordered" />
                     </label>
                 </div>
-                <button className={`btn btn-primary ${ loading ? 'loading' : ''}`}>Add Book </button>
+                <button className={`btn btn-primary ${ loading ? 'loading' : ''}`}> Add Book </button>
             </form>
         </div>
     );

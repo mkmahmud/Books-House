@@ -22,7 +22,7 @@ const Category = () => {
 
 
     return (
-        <div className='category border-y-2 bg-[#FB2576] '>
+        <div className='category  bg-[#000000] '>
             <ul className="menu menu-horizontal px-1 ">
                 {
                     category.map(cate => <li tabIndex={0}>

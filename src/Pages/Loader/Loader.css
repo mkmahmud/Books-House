@@ -1,0 +1,72 @@
+
+.myloader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#Ellipse_3{
+    fill: linear-gradient(180deg, #000000, #FF006F);
+    transform: rotate(85deg);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: Ellipes_3 0.5s  infinite ;
+
+}
+
+@keyframes Ellipes_3 {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+
+    }
+}
+
+#Polygon_28, #Polygon_27, #Polygon_26, #Polygon_25, #Polygon_24, #Polygon_23, #Polygon_22, #Polygon_21, #Polygon_20, #Polygon_19, #Polygon_18, #Polygon_17, #Polygon_16, #Polygon_15,#Polygon_14,#Polygon_13,#Polygon_12,#Polygon_11,#Polygon_10 {
+    transition: 1s ease-in-out;
+    transform: scale(1);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: shapes 0.8s infinite  alternate;
+    
+}
+
+#Polygon_28_-_Outline, #Polygon_27_-_Outline, #Polygon_26_-_Outline, #Polygon_25_-_Outline, #Polygon_24_-_Outline, #Polygon_23_-_Outline, #Polygon_22_-_Outline, #Polygon_21_-_Outline, #Polygon_20_-_Outline, #Polygon_19_-_Outline, #Polygon_18_-_Outline, #Polygon_17_-_Outline, #Polygon_16_-_Outline, #Polygon_15_-_Outline,#Polygon_14_-_Outline,#Polygon_13_-_Outline,#Polygon_12_-_Outline,#Polygon_11_-_Outline,#Polygon_10_-_Outline {
+    transition: 1s ease-in-out;
+    transform: scale(1);
+    transform-box: fill-box;
+    transform-origin: center;
+    fill: #ff006f70;
+    animation: shapes1 0.8s  infinite  alternate;
+}
+
+
+@keyframes shapes {
+    0%{
+        transform: scale(1) ;
+    }
+    50%{
+        transform: scale(0.6) ;
+    }
+    100%{
+        transform: scale(0) ;
+    }
+}
+
+@keyframes shapes1 {
+    0%{
+        transform: scale(1) ;
+    }
+    50%{
+        transform: scale(0.6) ;
+    }
+    100%{
+        transform: scale(0.4) ;
+    }
+}
+
+#Group_4{
+
+}

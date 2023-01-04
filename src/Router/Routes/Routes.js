@@ -8,7 +8,9 @@ import Books from '../../Pages/Books/Books';
 import SearchBooks from '../../Pages/Books/SearchBooks';
 import Cart from '../../Pages/Cart/Cart';
 import CategorySearch from '../../Pages/CategorySearch/CategorySearch';
+import HomeSlider from '../../Pages/Home/Banar/HomeSlider/HomeSlider';
 import Home from '../../Pages/Home/Home';
+import Loader from '../../Pages/Loader/Loader';
 import Login from '../../Pages/Login/Login';
 import Profile from '../../Pages/MyAccount/Profile/Profile';
 import MyAdded from '../../Pages/MyAdded/MyAdded';
@@ -87,7 +89,7 @@ const Routes = () => {
         },
         {
             path:'/test',
-            element: <Nav></Nav>
+            element: <Loader></Loader>
         }
     ]);
 

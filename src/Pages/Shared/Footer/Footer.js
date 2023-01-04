@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-[#256D85] text-neutral-content text-center">
+            <footer className="footer p-10 bg-[#3F0071] text-neutral-content text-center">
                 <div>
                     <span className="footer-title">Shop With Us</span>
                     <Link className="link link-hover">Advanced Search</Link>
@@ -43,7 +43,7 @@ const Footer = () => {
                     <Link className="link link-hover">Accessibility</Link>
                 </div>
             </footer>
-            <div className='bg-[#2B4865] text-white'>
+            <div className='bg-[#3F0071]  text-white'>
                 <p className='py-2'>Copyright © 2022 - All right reserved by Book House Ltd</p>
             </div>
         </div>

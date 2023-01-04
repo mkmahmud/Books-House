@@ -143,16 +143,18 @@ const Nav = () => {
                     </MenuItem>
                 </Menu >
                 :
-                <Stack direction='row' spacing={2}>
+              <Box sx={{ display: 'flex', alignItems: 'center'}}>
+                  <Stack direction='row' spacing={2}>
                     <Button sx={{ minWidth: 100, }} variant='outlined'><Link to='/sellbook'>Help</Link> </Button>
                     <Button sx={{ minWidth: 100, '&:hover': { backgroundColor: 'deepgreen', } }} color='success' variant='contained'><Link to='/sellbook'>Sign In</Link> </Button>
                 </Stack>
+              </Box>
         }
 
     </>
 
     return (
-        <div className='bg-green-100 flex justify-between px-5 py-2 bg-[#150050] text-white'>
+        <div className=' flex justify-between px-5 py-2 bg-[#150050] text-white'>
             <Link to='/'>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <img src={logo} alt="" style={{ height: '60px' }} />
@@ -160,7 +162,7 @@ const Nav = () => {
                 </Box>
             </Link>
             {
-                menus
+             databaseUserInfo &&  menus
             }
 
         </div>
