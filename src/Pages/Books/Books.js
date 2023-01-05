@@ -39,7 +39,7 @@ const Books = () => {
 
     // Load Data 
     const { loading, books } = useMyAdded(`?page=${currentPage}&perpge=${perPage}`);
-    console.log(books)
+
 
     // useEffect(() => {
     //     fetch(`https://bookhouse-server-mkmahmud.vercel.app/allbooks?page=${currentPage}&perpge=${perPage}`)
@@ -84,7 +84,7 @@ const Books = () => {
                 }
             })
     }
-    console.log(currentPage)
+
 
     return (
         <div className="books">

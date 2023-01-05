@@ -1,12 +1,9 @@
 import React from 'react';
 
-const MyAddedBook = ({ data, deleteHandler, boostandeler }) => {
+const BoostedBook = ({ data, deleteHandler, boostandeler }) => {
 
 
     const { status, price, category, bookWriter, BookImage, bookName, location, booksprice, addedTime, _id } = data;
-
-
-
 
     return (
         <div className="card card-side bg-[#3F0071] text-white shadow-xl my-4 p-2 min-w-md">
@@ -17,10 +14,8 @@ const MyAddedBook = ({ data, deleteHandler, boostandeler }) => {
                 <p>Price: <strong>{price}</strong></p>
                 <p>Category: <strong>{category}</strong></p>
                 <div className="card-actions justify-end">
-                  
-                    {
-                        status === 1 ? <button className="btn  btn-primary" onClick={() => { boostandeler(_id) }}>Boost</button> : <button className="btn  btn-warning">Pending</button>
-                    }
+
+                    <button className="btn  btn-primary">Boosted</button>
 
                     <button className="btn  bg-red-400" onClick={() => { deleteHandler(_id) }}>X</button>
                 </div>
@@ -29,4 +24,4 @@ const MyAddedBook = ({ data, deleteHandler, boostandeler }) => {
     );
 };
 
-export default MyAddedBook;
+export default BoostedBook;

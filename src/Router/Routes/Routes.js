@@ -6,6 +6,7 @@ import {
 import Main from '../../Layout/Main/Main';
 import Books from '../../Pages/Books/Books';
 import SearchBooks from '../../Pages/Books/SearchBooks';
+import BoostedBooks from '../../Pages/BoostedBooks/BoostedBooks';
 import Cart from '../../Pages/Cart/Cart';
 import CategorySearch from '../../Pages/CategorySearch/CategorySearch';
 import HomeSlider from '../../Pages/Home/Banar/HomeSlider/HomeSlider';
@@ -79,6 +80,10 @@ const Routes = () => {
                 {
                     path:'myAdded',
                     element: <PrivateRoute><MyAdded></MyAdded></PrivateRoute>
+                },
+                {
+                    path:'boosted',
+                    element: <PrivateRoute><BoostedBooks></BoostedBooks></PrivateRoute>
                 },
                 
             ]

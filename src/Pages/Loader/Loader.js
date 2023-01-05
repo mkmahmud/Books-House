@@ -3,7 +3,7 @@ import './Loader.css'
 
 const Loader = () => {
     return ( 
-        <div className='h-screen w-full bg-[#150050ba] absolute top-0 left-0 z-50'>
+        <div className='h-screen w-full bg-[#150050ba] fixed top-0 left-0 z-50'>
             <svg className='myloader' width="500" height="500" viewBox="0 0 958 896">
                 <defs>
                     <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">

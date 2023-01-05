@@ -33,10 +33,10 @@ const Category = () => {
                             }
 
                         </Link>
-                        <ul className="p-2 bg-base-100 z-10">
+                        <ul className="p-2 bg-[#FB2576] text-white z-10">
 
                             {
-                                cate?.subcategory?.map(sub => <li><Link to={`/books/${sub.name}`}>{sub.name}</Link></li>)
+                                cate?.subcategory?.map(sub => <li><Link to={`/books/${cate.categoryName}`}>{sub.name}</Link></li>)
                             }
                         </ul>
                     </li>)

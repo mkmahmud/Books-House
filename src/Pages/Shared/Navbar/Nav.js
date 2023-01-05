@@ -15,7 +15,7 @@ import { Button, Stack } from '@mui/material';
 import { UserAuth } from '../../../Context/AuthContext/AuthContext';
 import logo from '../../../Assetes/book.png'
 import BookIcon from '@mui/icons-material/Book';
-import { Book } from '@mui/icons-material';
+import { Book, TabUnselected } from '@mui/icons-material';
 
 
 
@@ -120,6 +120,15 @@ const Nav = () => {
                             <MenuItem sx={{ '&:hover': { backgroundColor: '#e72971', color: 'white' } }}>
                                 <Book></Book> <Link to='/mybooked'>My Booked</Link>
                             </MenuItem>
+                    }
+
+{
+                        databaseUserInfo?.role === 1 ?
+                            <MenuItem sx={{ color:'#FB2576', '&:hover': { backgroundColor: '#e72971', color: 'white' } }}>
+                                <TabUnselected ></TabUnselected> <Link to='/boosted'>Boosted Books</Link>
+                            </MenuItem>
+                            :
+                                ''
                     }
 
 
